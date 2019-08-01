@@ -1,6 +1,7 @@
 <!DOCTYPE html5>
 <html>
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -100,6 +101,9 @@
             </ol>
         </div>
     </div>
+    <div id="app2">
+        這是第二個vue: {{test}}
+    </div>
 
     <script>
         new Vue({
@@ -170,6 +174,15 @@
                     .catch(function(error) { // 请求失败处理
                         console.log(error);
                     });
+            }
+        })
+
+        new Vue({
+            el: '#app2',
+            data() {
+                return {
+                    test: "DDT"
+                };
             }
         })
     </script>
