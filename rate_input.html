@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>VUE LAB</title>
+    <title>匯率輸入</title>
     <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
     <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css" />
     <link type="text/css" rel="stylesheet" href="https://cdn.bootcss.com/mui/3.7.1/css/mui.min.css" />
@@ -15,6 +15,7 @@
 </head>
 
 <body>
+    <!-- 導航標題 -->
     <header class="mui-bar mui-bar-nav">
         <a class="mui-icon mui-icon-home mui-pull-left " href="index.html"></a>
         <h1 class="mui-title">匯率輸入</h1>
@@ -22,15 +23,17 @@
 
     <div id="app">
         <div class="card-body" style="padding-top: 49px">
-            <!-- <b-card title="Card Title" img-src="https://picsum.photos/200/60/?image=36" style="max-width: 100rem;"> -->
-            <b-card title="匯率輸入">
+            <b-card title="匯率輸入" img-src="img/110-1024x80.jpg" style="max-width: 80rem;">
+                <!-- <b-card title="匯率輸入" img-src="https://picsum.photos/1024/80/?image=110" style="max-width: 80rem;"> -->
                 <b-card-text>
                     匯率輸入
                 </b-card-text>
+                <!-- 鏈結按鈕 -->
                 <!-- <a href="#" class="card-link">Card link</a> -->
                 <!-- <b-link href="#" class="card-link">Another link</b-link> -->
-                <b-button href="#" variant="primary">Go somewhere</b-button>
+                <!-- <b-button href="#" variant="primary">Go somewhere</b-button> -->
             </b-card>
+
             <div style="margin-top:20px;">
                 <!-- 表單 -->
                 <form @submit="formSubmit">
@@ -84,6 +87,7 @@
                 </form>
             </div>
         </div>
+
         <!-- 查詢的資料輸出 -->
         <div>
             <ol>
