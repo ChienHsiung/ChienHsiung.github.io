@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">  
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+<link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+<link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css" />
+
+<script src="https://unpkg.com/vue"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js"></script>
+
+<script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+<script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+<style>
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 16px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2
+}
+
+</style>
+</head>
+<body>
+
+<div id="app">
+    <table>
+    <tr>
+      <th width="15%">BANK</th>
+      <th>DATE</th>
+      <th>ASK</th>
+      <th>BID</th>
+    </tr>
+    <tr v-for="value in info.data">
+      <td>{{value.bank}}</td>
+      <td>{{value.date}}</td>
+      <td>{{value.ask}}</td>
+      <td>{{value.bid}}</td>
+    </tr>
+  </table>
+</div>
+
+<script>
+  new Vue({
+    el: '#app',
+    data () {
+      return {
+        info: 0
+      }
+    },
+    mounted () {
+      axios
+        .get('http://www.vietthuan.com:8080',{
+          params:{
+            username:"username",
+            password:"password",
+            row :5,
+          }
+        })
+        .then(response => (this.info = response))
+        .catch(function (error) { // 请求失败处理
+          console.log(error);
+        });
+    },
+    });      
+  </script>
+
+  <!-- <script>
+    window.addEventListener("load",function() {
+      setTimeout(function(){
+          // This hides the address bar:
+          // window.scrollTo(0, 1);
+          alert('here')
+      }, 0);
+    });
+  </script> -->
+</body>
+</html>

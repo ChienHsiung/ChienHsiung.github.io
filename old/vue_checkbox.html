@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>VUE LAB</title> 
+  <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+  <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css" />
+  <script src="https://unpkg.com/vue@2.6.10/dist/vue.min.js"></script>
+  <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>  
+  <script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+</head>
+
+<body>
+  <div id="app" style="margin-top: -40px">
+    <div class="card-body">
+
+      <b-container>
+        <b-jumbotron header="問卷" lead="Bootstrap v4 Components for Vue.js 2" style="margin-top: 10px">
+          <p>For more information visit our website</p>
+				<b-btn variant="primary" href="https://bootstrap-vue.js.org/">More Info</b-btn>
+        </b-jumbotron>
+      </b-container>
+<div style="padding-left: 100px">
+      <b-form-group label="Form-checkbox-group inline checkboxes (default)">
+        <b-form-checkbox-group v-model="selected" :options="options" name="flavour-1a"></b-form-checkbox-group>
+      </b-form-group>
+
+      <b-form-group label="Form-checkbox-group stacked checkboxes">
+        <b-form-checkbox-group v-model="selected" :options="options" name="flavour-2a" stacked></b-form-checkbox-group>
+      </b-form-group>
+
+      <b-form-group label="Individual stacked checkboxes (default)">
+        <b-form-checkbox v-for="option in options" v-model="selected" :key="option.value" :value="option.value"
+          name="flavour-3a">
+          {{ option.text }}
+        </b-form-checkbox>
+      </b-form-group>
+
+      <b-form-group label="Individual inline checkboxes">
+        <b-form-checkbox v-for="option in options" v-model="selected" :key="option.value" :value="option.value"
+          name="flavour-4a" inline>
+          {{ option.text }}
+        </b-form-checkbox>
+      </b-form-group>
+    </div>
+    </div>
+  </div>
+
+  <script>
+    new Vue({
+      el: "#app",
+      data() {
+        return {
+          selected: [], // Must be an array reference!
+          options: [
+            { text: 'Orange', value: 'orange' },
+            { text: 'Apple', value: 'apple' },
+            { text: 'Pineapple', value: 'pineapple' },
+            { text: 'Grape', value: 'grape' }
+          ]
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

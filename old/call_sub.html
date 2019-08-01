@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js"></script>
+</head>
+<body>
+<div id="app">
+	<button @click="openWindow()">Open Window</button>
+	<br>
+	<button @click="closeWindow()">Close Window</button>
+</div>
+<script>
+ new Vue({
+ el: '#app',
+  data: {
+	  myWindow : ''
+  },  
+   methods:{
+    openWindow: function () {		
+				//   this.myWindow = window.open("", "myWindow", "width=500,height=300");
+				this.myWindow = window.open("sub.html", "myWindow", "width=500,height=300");
+                // this.myWindow.document.write("<h1>www.tutorialsplane.com</h1>");
+    },
+	closeWindow: function () {		
+			this.myWindow.close();	
+    }
+	}
+});
+</script>        
+</body>
+</html>

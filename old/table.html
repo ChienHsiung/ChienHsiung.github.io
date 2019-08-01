@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">  
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+<link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+<link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css" />
+
+<link href="https://cdn.bootcss.com/mui/3.7.1/css/mui.css" rel="stylesheet" />
+<script src="https://cdn.bootcss.com/mui/3.7.1/js/mui.js"></script>
+
+<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+<script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+
+<!-- <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script> -->
+<style>
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 16px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2
+}
+</style>
+</head>
+<body>
+
+<!-- <header class="mui-bar mui-bar-nav">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title">标题</h1>
+</header> -->
+
+  <div style="margin-top:10px"> <!-- 设置margin-top是为了查看IE全屏前后的区别 -->
+    <input type="button" value="FullScreen" onclick="fullScreen()" />
+    <input type="button" value="ExitFullScreen" onclick="exitFullScreen()" />
+    <input type="button" value="CloseWindow" onclick="CloseWindow()" />    
+  </div>
+
+<h2>爬蟲練習</h2>
+<p>臺灣銀行 BOT<br/>越南銀行 Vietcom Bank<br/>柬埔寨銀行 ABA</p>
+<div id="app">
+  <table>
+    <tr>
+      <th>BANK</th>
+      <th>DATE</th>
+      <th>ASK</th>
+      <th>BID</th>
+    </tr>
+    <tr v-for="value in info.data">
+      <td>{{value.bank}}</td>
+      <td>{{value.date}}</td>
+      <td>{{value.ask}}</td>
+      <td>{{value.bid}}</td>
+    </tr>
+    <!-- <tr>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>                    
+    </tr> -->
+  </table>
+</div>
+
+<script>
+  new Vue({
+    el: '#app',
+    data () {
+      return {
+        info: 0
+      }
+    },
+    mounted () {
+      axios
+        .get('http://www.vietthuan.com:8080',{
+          params:{
+            username:"username",
+            password:"password",
+            row :20,
+          }
+        })
+        .then(response => (this.info = response))
+        .catch(function (error) { // 请求失败处理
+          console.log(error);
+        });
+    }
+});      
+  </script>
+  <script>
+    function fullScreen() {
+    var el = document.documentElement;
+    var rfs = el.requestFullScreen || el.webkitRequestFullScreen || 
+        el.mozRequestFullScreen || el.msRequestFullScreen;
+    if(typeof rfs != "undefined" && rfs) {
+      rfs.call(el);
+    } else if(typeof window.ActiveXObject != "undefined") {
+      //for IE，这里其实就是模拟了按下键盘的F11，使浏览器全屏
+      var wscript = new ActiveXObject("WScript.Shell");
+      if(wscript != null) {
+          wscript.SendKeys("{F11}");
+      }
+    }
+  }
+  function exitFullScreen() {
+
+    var el = document;
+    var cfs = el.cancelFullScreen || el.webkitCancelFullScreen || 
+        el.mozCancelFullScreen || el.exitFullScreen;
+    if(typeof cfs != "undefined" && cfs) {
+      cfs.call(el);
+    } else if(typeof window.ActiveXObject != "undefined") {
+      //for IE，这里和fullScreen相同，模拟按下F11键退出全屏
+      var wscript = new ActiveXObject("WScript.Shell");
+      if(wscript != null) {
+          wscript.SendKeys("{F11}");
+      }
+    }
+  }
+
+function CloseWindow()
+{
+  if (confirm("Close Window?")) {
+    stop()
+  }
+}
+</script>
+</body>
+</html>

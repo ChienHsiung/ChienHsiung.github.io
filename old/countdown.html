@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <script type="text/javascript">
+    // define the function myClose to close the current window
+    function myClose(){
+        // convert the contents of the element with id time to an integer and save it in variable n
+        var n=parseInt(time.innerHTML);
+        n--;
+        // If n==0, close the page
+        // Otherwise, it will be automatically turned off after n+ seconds, 
+        // and then saved back to the content of time.
+        if(n>0){
+            time.innerHTML = n + " seconds countdown";
+            timer=setTimeout(myClose,1000);
+        }else{
+            close();
+        }
+    }
+    var timer=null;
+    // When the page is loaded, the periodic timer is started, 
+    // and myClose is executed every 1 second.
+    window.onload=function(){
+        timer=setTimeout(myClose,1000);
+    }
+    </script>
+</head>
+<body>
+    <span id="time">5 seconds countdown</span><br>
+</body>
+</html>

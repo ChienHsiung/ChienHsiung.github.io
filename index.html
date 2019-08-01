@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Hello MUI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link type="text/css" rel="stylesheet" href="https://cdn.bootcss.com/mui/3.7.1/css/mui.min.css" />
+</head>
+
+<body>
+    <header class="mui-bar mui-bar-nav">
+        <h1 class="mui-title">主選單<small>sub1</small></h1>
+    </header>
+    <div class="mui-content">
+        <ul class="mui-table-view mui-grid-view mui-grid-9">
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                <a href="rate_input.html">
+                    <span class="mui-icon mui-icon-home"></span>
+                    <div class="mui-media-body">匯率輸入</div>
+                </a>
+            </li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                <a href="rate_output.html">
+                    <span class="mui-icon mui-icon-email"><span class="mui-badge">135</span></span>
+                    <div class="mui-media-body">匯率查詢</div>
+                </a>
+            </li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                <a href="chart.html">
+                    <span class="mui-icon mui-icon-chatbubble"></span>
+                    <div class="mui-media-body">歷史圖表</div>
+                </a>
+            </li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                <a href="table_blank.html">
+                    <span class="mui-icon mui-icon-location"></span>
+                    <div class="mui-media-body">table blank</div>
+                </a>
+            </li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                <a href="blank.html">
+                    <span class="mui-icon mui-icon-search"></span>
+                    <div class="mui-media-body">blank</div>
+                </a>
+            </li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                <a href="vue_checkbox.html">
+                    <span class="mui-icon mui-icon-phone"></span>
+                    <div class="mui-media-body">Q&A</div>
+                </a>
+            </li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                <a href="#">
+                    <span class="mui-icon mui-icon-gear"></span>
+                    <div class="mui-media-body">Setting</div>
+                </a>
+            </li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                <a href="#">
+                    <span class="mui-icon mui-icon-info"></span>
+                    <div class="mui-media-body">about</div>
+                </a>
+            </li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                <a href="#">
+                    <span class="mui-icon mui-icon-more"></span>
+                    <div class="mui-media-body">more</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</body>
+<script src="./js/mui.js"></script>
+<script>
+    mui.init({
+        swipeBack: true //启用右滑关闭功能
+    });
+</script>
+
+</html>
