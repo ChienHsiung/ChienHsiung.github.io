@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login V6</title>
+	<title>Tiger alwin</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">	
 	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
@@ -15,21 +15,22 @@
 	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
 </head>
 <body>
-	<div class="limiter">
+	<div class="limiter" style="margin-top: -90px;">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-85 p-b-20">
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" @submit="formSubmit">
 					<span class="login100-form-title p-b-70">
-						Welcome
+						Tiger alwin Login
 					</span>
 					<span class="login100-form-avatar">
 						<img src="images/avatar-01.jpg" alt="AVATAR">
 					</span>
 
 					<div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter username">
-						<input class="input100" type="text" name="username">
+						<input class="input100" type="text" name="username" v-model="username">
 						<span class="focus-input100" data-placeholder="Username"></span>
 					</div>
 
@@ -43,28 +44,6 @@
 							Login
 						</button>
 					</div>
-
-					<ul class="login-more p-t-190">
-						<li class="m-b-8">
-							<span class="txt1">
-								Forgot
-							</span>
-
-							<a href="#" class="txt2">
-								Username / Password?
-							</a>
-						</li>
-
-						<li>
-							<span class="txt1">
-								Don’t have an account?
-							</span>
-
-							<a href="#" class="txt2">
-								Sign up
-							</a>
-						</li>
-					</ul>
 				</form>
 			</div>
 		</div>
@@ -82,5 +61,49 @@
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 	<script src="js/main.js"></script>
 
+
+    <script>
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    username: "",
+                    pass: ""
+                }
+            },
+            methods: {
+                formSubmit(e) {
+                	alert('hihi')
+                    e.preventDefault();
+                    axios
+                        .get('http://www.vietthuan.com:8080', {
+                            params: {
+                                username: username,
+                                password: pass,
+                                // row: this.row,
+                            }
+                        })
+                        .then(response => (this.info = response))
+                        .catch(function(error) { // 请求失败处理
+                            console.log(error);
+                        });
+                }
+            },
+            mounted() {
+                axios
+                    .get('http://www.vietthuan.com:8080', {
+                        params: {
+                            username: username,
+                            password: pass,
+                            // row: this.row,
+                        }
+                    })
+                    .then(response => (this.info = response))
+                    .catch(function(error) { // 请求失败处理
+                        console.log(error);
+                    });
+            }
+        })
+    </script>
 </body>
 </html>
