@@ -11,12 +11,12 @@
     <script src="js/vue.min.js"></script>
 </head>
 <body>
-<div id="app">
-    <p>{{message}}</p>
-    <keep-alive>
-        <my-components msg="123" v-if="show"></my-components>
-    </keep-alive>
-</div>
+    <div id="app">
+        <p>{{message}}</p>
+        <keep-alive>
+            <my-components msg="123" v-if="show"></my-components>
+        </keep-alive>
+    </div>
 </body>
 <script>
     var child = {
