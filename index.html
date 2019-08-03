@@ -73,8 +73,6 @@
             },
             methods: {
                 formSubmit(e) {
-                	alert('hihi')
-                    e.preventDefault();
                     axios
                         .get('http://www.vietthuan.com:8080', {
                             params: {
@@ -88,20 +86,6 @@
                             console.log(error);
                         });
                 }
-            },
-            mounted() {
-                axios
-                    .get('http://www.vietthuan.com:8080', {
-                        params: {
-                            username: username,
-                            password: pass,
-                            // row: this.row,
-                        }
-                    })
-                    .then(response => (this.info = response))
-                    .catch(function(error) { // 请求失败处理
-                        console.log(error);
-                    });
             }
         })
     </script>
