@@ -61,68 +61,68 @@
             }
             console.log(state);
         },
-        beforeMount: function () {
-            console.group('beforeMount 挂载前状态===============》');
-            var state = {
-                'el': this.$el,
-                'data': this.$data,
-                'message': this.message
-            }
-            console.log(this.$el);
-            console.log(state);
-        },
-        mounted: function () {
-            console.group('mounted 挂载结束状态===============》');
-            var state = {
-                'el': this.$el,
-                'data': this.$data,
-                'message': this.message
-            }
-            console.log(this.$el);
-            console.log(state);
-            // this.message = 'change';
-        },
-        beforeUpdate: function () {
-            console.group('beforeUpdate 更新前状态===============》');
-            var state = {
-                'el': this.$el,
-                'data': this.$data,
-                'message': this.message
-            }
-            console.log(this.$el);
-            console.log(state);
-            // this.message = 'change2';
-        },
-        updated: function () {
-            console.group('updated 更新完成状态===============》');
-            var state = {
-                'el': this.$el,
-                'data': this.$data,
-                'message': this.message
-            }
-            console.log(this.$el);
-            console.log(state);
-        },
-        beforeDestroy: function () {
-            console.group('beforeDestroy 销毁前状态===============》');
-            var state = {
-                'el': this.$el,
-                'data': this.$data,
-                'message': this.message
-            }
-            console.log(this.$el);
-            console.log(state);
-        },
-        destroyed: function () {
-            console.group('destroyed 销毁完成状态===============》');
-            var state = {
-                'el': this.$el,
-                'data': this.$data,
-                'message': this.message
-            }
-            console.log(this.$el);
-            console.log(state);
-        },
+        // beforeMount: function () {
+        //     console.group('beforeMount 挂载前状态===============》');
+        //     var state = {
+        //         'el': this.$el,
+        //         'data': this.$data,
+        //         'message': this.message
+        //     }
+        //     console.log(this.$el);
+        //     console.log(state);
+        // },
+        // mounted: function () {
+        //     console.group('mounted 挂载结束状态===============》');
+        //     var state = {
+        //         'el': this.$el,
+        //         'data': this.$data,
+        //         'message': this.message
+        //     }
+        //     console.log(this.$el);
+        //     console.log(state);
+        //     // this.message = 'change';
+        // },
+        // beforeUpdate: function () {
+        //     console.group('beforeUpdate 更新前状态===============》');
+        //     var state = {
+        //         'el': this.$el,
+        //         'data': this.$data,
+        //         'message': this.message
+        //     }
+        //     console.log(this.$el);
+        //     console.log(state);
+        //     // this.message = 'change2';
+        // },
+        // updated: function () {
+        //     console.group('updated 更新完成状态===============》');
+        //     var state = {
+        //         'el': this.$el,
+        //         'data': this.$data,
+        //         'message': this.message
+        //     }
+        //     console.log(this.$el);
+        //     console.log(state);
+        // },
+        // beforeDestroy: function () {
+        //     console.group('beforeDestroy 销毁前状态===============》');
+        //     var state = {
+        //         'el': this.$el,
+        //         'data': this.$data,
+        //         'message': this.message
+        //     }
+        //     console.log(this.$el);
+        //     console.log(state);
+        // },
+        // destroyed: function () {
+        //     console.group('destroyed 销毁完成状态===============》');
+        //     var state = {
+        //         'el': this.$el,
+        //         'data': this.$data,
+        //         'message': this.message
+        //     }
+        //     console.log(this.$el);
+        //     console.log(state);
+        // },
         components: {
             'my-components': child
         }
