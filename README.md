@@ -1,2 +1,0 @@
-# chienhsiung.github.io
-web
